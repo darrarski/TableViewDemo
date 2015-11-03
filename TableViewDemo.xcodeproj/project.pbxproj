@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		31B645591BE9699800B66D12 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B645581BE9699800B66D12 /* main.m */; };
 		31B6455C1BE9699800B66D12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B6455B1BE9699800B66D12 /* AppDelegate.m */; };
-		31B6455F1BE9699800B66D12 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B6455E1BE9699800B66D12 /* ViewController.m */; };
 		31B645641BE9699800B66D12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31B645631BE9699800B66D12 /* Assets.xcassets */; };
 		31B645671BE9699800B66D12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 31B645651BE9699800B66D12 /* LaunchScreen.storyboard */; };
 		31B645741BE96B5700B66D12 /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B645731BE96B5700B66D12 /* MainWindow.m */; };
 		31B645771BE96CA000B66D12 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B645761BE96CA000B66D12 /* MainNavigationController.m */; };
 		773AC9B026B79A9CFB858F14 /* libPods-TableViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A50DB41EDF0397345D9657E /* libPods-TableViewDemo.a */; };
+		9DA8A11AFAF2BB4B64A776DE /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A34344CDB5A56169C3BD /* ListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,8 +23,6 @@
 		31B645581BE9699800B66D12 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		31B6455A1BE9699800B66D12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		31B6455B1BE9699800B66D12 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		31B6455D1BE9699800B66D12 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		31B6455E1BE9699800B66D12 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		31B645631BE9699800B66D12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31B645661BE9699800B66D12 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		31B645681BE9699800B66D12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -33,6 +31,8 @@
 		31B645751BE96CA000B66D12 /* MainNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainNavigationController.h; sourceTree = "<group>"; };
 		31B645761BE96CA000B66D12 /* MainNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainNavigationController.m; sourceTree = "<group>"; };
 		6A50DB41EDF0397345D9657E /* libPods-TableViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TableViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DA8A34344CDB5A56169C3BD /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		9DA8AD2986C330A1D7A852E7 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
 		F4F65EFFA083921CE6EAA4F1 /* Pods-TableViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TableViewDemo/Pods-TableViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,8 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				31B645711BE96B2600B66D12 /* Main */,
-				31B6455D1BE9699800B66D12 /* ViewController.h */,
-				31B6455E1BE9699800B66D12 /* ViewController.m */,
+				9DA8A91B1E9A19A090360293 /* ListScreen */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -131,6 +130,15 @@
 				6A50DB41EDF0397345D9657E /* libPods-TableViewDemo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9DA8A91B1E9A19A090360293 /* ListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9DA8A34344CDB5A56169C3BD /* ListViewController.m */,
+				9DA8AD2986C330A1D7A852E7 /* ListViewController.h */,
+			);
+			path = ListScreen;
 			sourceTree = "<group>";
 		};
 		CFE3F942283927EAA5268684 /* Pods */ = {
@@ -263,10 +271,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B645741BE96B5700B66D12 /* MainWindow.m in Sources */,
-				31B6455F1BE9699800B66D12 /* ViewController.m in Sources */,
 				31B6455C1BE9699800B66D12 /* AppDelegate.m in Sources */,
 				31B645591BE9699800B66D12 /* main.m in Sources */,
 				31B645771BE96CA000B66D12 /* MainNavigationController.m in Sources */,
+				9DA8A11AFAF2BB4B64A776DE /* ListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

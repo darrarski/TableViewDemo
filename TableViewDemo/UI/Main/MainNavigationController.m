@@ -4,14 +4,15 @@
 //
 
 #import "MainNavigationController.h"
-#import "ViewController.h"
+#import "ListViewController.h"
 
 @implementation MainNavigationController
 
 - (instancetype)init
 {
-    UIViewController *rootViewController = [[ViewController alloc] initWithNibName:nil bundle:nil];
-    return [super initWithRootViewController:rootViewController];
+    UIViewController *rootViewController = [[ListViewController alloc] initWithStyle:UITableViewStylePlain];
+    self = [super initWithRootViewController:rootViewController];
+    return self;
 }
 
 @end
