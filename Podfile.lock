@@ -1,0 +1,10 @@
+PODS:
+  - DRTableViewManager (1.0.12)
+
+DEPENDENCIES:
+  - DRTableViewManager (~> 1.0.12)
+
+SPEC CHECKSUMS:
+  DRTableViewManager: bee9438a79cf7fc15e98c31d3e3631b3866708bc
+
+COCOAPODS: 0.39.0
