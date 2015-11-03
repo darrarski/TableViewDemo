@@ -14,8 +14,11 @@
 		31B645741BE96B5700B66D12 /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B645731BE96B5700B66D12 /* MainWindow.m */; };
 		31B645771BE96CA000B66D12 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B645761BE96CA000B66D12 /* MainNavigationController.m */; };
 		773AC9B026B79A9CFB858F14 /* libPods-TableViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A50DB41EDF0397345D9657E /* libPods-TableViewDemo.a */; };
+		9DA8A07FE4A4B1DFCC0FF2B3 /* ItemsSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A3B585F6D2FF710BBB77 /* ItemsSection.m */; };
+		9DA8A0C7DE51B9F3E48E6B6F /* ItemRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8AB8444C3DBEB97303EDE /* ItemRow.m */; };
 		9DA8A11AFAF2BB4B64A776DE /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A34344CDB5A56169C3BD /* ListViewController.m */; };
 		9DA8A3CC265EF753EE95AA93 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A1FE0B3BCB795F37106A /* Item.m */; };
+		9DA8A739C836C2B97228283B /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A347DC5979B2DD840828 /* ItemCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,8 +37,14 @@
 		6A50DB41EDF0397345D9657E /* libPods-TableViewDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TableViewDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DA8A1FE0B3BCB795F37106A /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
 		9DA8A34344CDB5A56169C3BD /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		9DA8A347DC5979B2DD840828 /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
+		9DA8A3B585F6D2FF710BBB77 /* ItemsSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsSection.m; sourceTree = "<group>"; };
 		9DA8A433A3DFFCB3272E1691 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		9DA8AB8444C3DBEB97303EDE /* ItemRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemRow.m; sourceTree = "<group>"; };
+		9DA8AC7A361C4D05BB536ED8 /* ItemsSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsSection.h; sourceTree = "<group>"; };
+		9DA8AC868824C2D9977A629E /* ItemRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemRow.h; sourceTree = "<group>"; };
 		9DA8AD2986C330A1D7A852E7 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		9DA8AF7434416744FB7E5B62 /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
 		F4F65EFFA083921CE6EAA4F1 /* Pods-TableViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TableViewDemo/Pods-TableViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,11 +154,25 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9DA8A82F2FD3DEBF857D5D2B /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				9DA8A3B585F6D2FF710BBB77 /* ItemsSection.m */,
+				9DA8AC7A361C4D05BB536ED8 /* ItemsSection.h */,
+				9DA8AB8444C3DBEB97303EDE /* ItemRow.m */,
+				9DA8AC868824C2D9977A629E /* ItemRow.h */,
+				9DA8A347DC5979B2DD840828 /* ItemCell.m */,
+				9DA8AF7434416744FB7E5B62 /* ItemCell.h */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		9DA8A91B1E9A19A090360293 /* ListScreen */ = {
 			isa = PBXGroup;
 			children = (
 				9DA8A34344CDB5A56169C3BD /* ListViewController.m */,
 				9DA8AD2986C330A1D7A852E7 /* ListViewController.h */,
+				9DA8A82F2FD3DEBF857D5D2B /* TableView */,
 			);
 			path = ListScreen;
 			sourceTree = "<group>";
@@ -289,6 +312,9 @@
 				31B645771BE96CA000B66D12 /* MainNavigationController.m in Sources */,
 				9DA8A11AFAF2BB4B64A776DE /* ListViewController.m in Sources */,
 				9DA8A3CC265EF753EE95AA93 /* Item.m in Sources */,
+				9DA8A07FE4A4B1DFCC0FF2B3 /* ItemsSection.m in Sources */,
+				9DA8A0C7DE51B9F3E48E6B6F /* ItemRow.m in Sources */,
+				9DA8A739C836C2B97228283B /* ItemCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
