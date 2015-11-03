@@ -6,11 +6,12 @@
 #import "ItemsSection.h"
 #import "ItemRow.h"
 #import "Item.h"
+#import "ItemsListController.h"
 
 @interface ItemsSection ()
 
-@property (nonatomic, strong) NSArray<Item *> *items;
 @property (nonatomic, strong) ItemRow *itemRow;
+@property (nonatomic, strong) ItemsListController *itemsListController;
 
 @end
 
@@ -30,7 +31,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.items.count;
+    return self.itemsListController.itemsCount;
 }
 
 #pragma mark - Row
@@ -41,25 +42,22 @@
         ItemRow *row = [[ItemRow alloc] init];
         __weak typeof(self) welf = self;
         row.itemBlock = ^Item *(NSIndexPath *indexPath) {
-            return welf.items[(NSUInteger) indexPath.row];
+            return [welf.itemsListController itemAtIndex:(NSUInteger) indexPath.row];
         };
         _itemRow = row;
     }
     return _itemRow;
 }
 
-#pragma mark - Items
+#pragma mark - ItemsListController
 
-- (NSArray *)items
+- (ItemsListController *)itemsListController
 {
-    if (!_items) {
-        NSMutableArray *items = [NSMutableArray new];
-        for (NSUInteger i = 1; i <= 10; ++i) {
-            [items addObject:[[Item alloc] initWithName:[NSString stringWithFormat:@"Item #%@", @(i)]]];
-        }
-        _items = [items copy];
+    if (!_itemsListController) {
+        ItemsListController *controller = [[ItemsListController alloc] init];
+        _itemsListController = controller;
     }
-    return _items;
+    return _itemsListController;
 }
 
 @end

@@ -19,6 +19,7 @@
 		9DA8A11AFAF2BB4B64A776DE /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A34344CDB5A56169C3BD /* ListViewController.m */; };
 		9DA8A3CC265EF753EE95AA93 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A1FE0B3BCB795F37106A /* Item.m */; };
 		9DA8A739C836C2B97228283B /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A347DC5979B2DD840828 /* ItemCell.m */; };
+		9DA8A8BCA234E04D342F672C /* ItemsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8AF6C6F29948AFD4196CE /* ItemsListController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,10 +41,12 @@
 		9DA8A347DC5979B2DD840828 /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
 		9DA8A3B585F6D2FF710BBB77 /* ItemsSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsSection.m; sourceTree = "<group>"; };
 		9DA8A433A3DFFCB3272E1691 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
+		9DA8A94145CBE98CCCFB9EB3 /* ItemsListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsListController.h; sourceTree = "<group>"; };
 		9DA8AB8444C3DBEB97303EDE /* ItemRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemRow.m; sourceTree = "<group>"; };
 		9DA8AC7A361C4D05BB536ED8 /* ItemsSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsSection.h; sourceTree = "<group>"; };
 		9DA8AC868824C2D9977A629E /* ItemRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemRow.h; sourceTree = "<group>"; };
 		9DA8AD2986C330A1D7A852E7 /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		9DA8AF6C6F29948AFD4196CE /* ItemsListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsListController.m; sourceTree = "<group>"; };
 		9DA8AF7434416744FB7E5B62 /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
 		F4F65EFFA083921CE6EAA4F1 /* Pods-TableViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TableViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TableViewDemo/Pods-TableViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,6 +89,7 @@
 				31B645571BE9699800B66D12 /* Supporting Files */,
 				31B645701BE96A4200B66D12 /* UI */,
 				9DA8A4D47D999F959340B3EE /* Models */,
+				9DA8AD669C179BDF5818A403 /* Controllers */,
 			);
 			path = TableViewDemo;
 			sourceTree = "<group>";
@@ -175,6 +179,15 @@
 				9DA8A82F2FD3DEBF857D5D2B /* TableView */,
 			);
 			path = ListScreen;
+			sourceTree = "<group>";
+		};
+		9DA8AD669C179BDF5818A403 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9DA8AF6C6F29948AFD4196CE /* ItemsListController.m */,
+				9DA8A94145CBE98CCCFB9EB3 /* ItemsListController.h */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		CFE3F942283927EAA5268684 /* Pods */ = {
@@ -315,6 +328,7 @@
 				9DA8A07FE4A4B1DFCC0FF2B3 /* ItemsSection.m in Sources */,
 				9DA8A0C7DE51B9F3E48E6B6F /* ItemRow.m in Sources */,
 				9DA8A739C836C2B97228283B /* ItemCell.m in Sources */,
+				9DA8A8BCA234E04D342F672C /* ItemsListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
