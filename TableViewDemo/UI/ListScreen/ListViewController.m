@@ -54,7 +54,15 @@
 - (ItemsSection *)listSection
 {
     if (!_listSection) {
-        _listSection = [[ItemsSection alloc] init];
+        ItemsSection *section = [[ItemsSection alloc] init];
+        __weak typeof(self) welf = self;
+        section.tableViewBlock = ^UITableView * {
+            return welf.tableView;
+        };
+        section.sectionIndexBlock = ^NSUInteger {
+            return [welf.sectionsController.sectionsArray indexOfObject:welf.listSection];
+        };
+        _listSection = section;
     }
     return _listSection;
 }

@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) ItemRow *itemRow;
 @property (nonatomic, strong) ItemsListController *itemsListController;
+@property (nonatomic, strong) NSArray *items;
 
 @end
 
@@ -20,6 +21,14 @@
 + (void)registerInTableView:(UITableView *)tableView
 {
     [ItemRow registerInTableView:tableView];
+}
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        [self setupItemsListController];
+    }
+    return self;
 }
 
 #pragma mark - DRTableViewSection
@@ -31,7 +40,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.itemsListController.itemsCount;
+    return self.items.count;
 }
 
 #pragma mark - Row
@@ -42,7 +51,7 @@
         ItemRow *row = [[ItemRow alloc] init];
         __weak typeof(self) welf = self;
         row.itemBlock = ^Item *(NSIndexPath *indexPath) {
-            return [welf.itemsListController itemAtIndex:(NSUInteger) indexPath.row];
+            return welf.items[(NSUInteger) indexPath.row];
         };
         _itemRow = row;
     }
@@ -54,10 +63,49 @@
 - (ItemsListController *)itemsListController
 {
     if (!_itemsListController) {
-        ItemsListController *controller = [[ItemsListController alloc] init];
-        _itemsListController = controller;
+        _itemsListController = [[ItemsListController alloc] init];;
     }
     return _itemsListController;
+}
+
+- (void)setupItemsListController
+{
+    __weak typeof(self) welf = self;
+    self.itemsListController.willUpdateBlock = ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UITableView *tableView = welf.tableViewBlock ? welf.tableViewBlock() : nil;
+            [tableView beginUpdates];
+        });
+    };
+    self.itemsListController.didInsertItemsBlock = ^(NSUInteger count, NSUInteger atIndex) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            welf.items = welf.itemsListController.items;
+            UITableView *tableView = welf.tableViewBlock ? welf.tableViewBlock() : nil;
+            [tableView insertRowsAtIndexPaths:[welf indexPathsForRowsWithStartIndex:atIndex
+                                                                              count:count]
+                             withRowAnimation:UITableViewRowAnimationAutomatic];
+        });
+    };
+    self.itemsListController.didUpdateBlock = ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            UITableView *tableView = welf.tableViewBlock ? welf.tableViewBlock() : nil;
+            [tableView endUpdates];
+        });
+    };
+}
+
+#pragma mark -
+
+- (NSArray<NSIndexPath *> *)indexPathsForRowsWithStartIndex:(NSUInteger)startIndex count:(NSUInteger)count
+{
+    NSUInteger sectionIndex = self.sectionIndexBlock ? self.sectionIndexBlock() : 0;
+    NSMutableArray *indexPaths = [NSMutableArray new];
+    for (NSUInteger i = 0; i < count; ++i) {
+        NSUInteger rowIndex = startIndex + i;
+        [indexPaths addObject:[NSIndexPath indexPathForRow:rowIndex
+                                                 inSection:sectionIndex]];
+    }
+    return [indexPaths copy];
 }
 
 @end

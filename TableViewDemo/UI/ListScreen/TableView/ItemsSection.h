@@ -5,7 +5,13 @@
 
 #import <DRTableViewManager/DRTableViewSection.h>
 
+typedef UITableView *(^ItemsSectionTableViewBlock)();
+typedef NSUInteger (^ItemsSectionIndexBlock)();
+
 @interface ItemsSection : NSObject <DRTableViewSection>
+
+@property (nonatomic, copy) ItemsSectionTableViewBlock tableViewBlock;
+@property (nonatomic, copy) ItemsSectionIndexBlock sectionIndexBlock;
 
 + (void)registerInTableView:(UITableView *)tableView;
 
