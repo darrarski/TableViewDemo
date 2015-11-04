@@ -36,6 +36,11 @@
     return 44.f;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 44.f;
+}
+
 - (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell *)c forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ItemCell *cell = (ItemCell *) c;
