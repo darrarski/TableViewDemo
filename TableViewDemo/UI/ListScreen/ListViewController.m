@@ -7,12 +7,14 @@
 #import <DRTableViewManager/DRTableViewGenericSectionsController.h>
 #import "ListViewController.h"
 #import "ItemsSection.h"
+#import "LoadingSection.h"
 
 @interface ListViewController ()
 
 @property (nonatomic, strong) DRTableViewManager *tableViewManager;
 @property (nonatomic, strong) DRTableViewGenericSectionsController *sectionsController;
 @property (nonatomic, strong) ItemsSection *listSection;
+@property (nonatomic, strong) LoadingSection *loadingSection;
 
 @end
 
@@ -46,7 +48,10 @@
 {
     if (!_sectionsController) {
         _sectionsController = [[DRTableViewGenericSectionsController alloc] init];
-        _sectionsController.sectionsArray = @[self.listSection];
+        _sectionsController.sectionsArray = @[
+            self.listSection,
+            self.loadingSection
+        ];
     }
     return _sectionsController;
 }
@@ -65,6 +70,15 @@
         _listSection = section;
     }
     return _listSection;
+}
+
+- (LoadingSection *)loadingSection
+{
+    if (!_loadingSection) {
+        LoadingSection *section = [[LoadingSection alloc] init];
+        _loadingSection = section;
+    }
+    return _loadingSection;
 }
 
 @end
