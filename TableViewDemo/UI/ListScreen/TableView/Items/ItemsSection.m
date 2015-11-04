@@ -91,6 +91,15 @@
                              withRowAnimation:UITableViewRowAnimationAutomatic];
         });
     };
+    self.itemsListController.didDeleteItemsBlock = ^(NSUInteger count, NSUInteger atIndex) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            welf.items = welf.itemsListController.items;
+            UITableView *tableView = welf.tableViewBlock ? welf.tableViewBlock() : nil;
+            [tableView deleteRowsAtIndexPaths:[welf indexPathsForRowsWithStartIndex:atIndex
+                                                                              count:count]
+                             withRowAnimation:UITableViewRowAnimationAutomatic];
+        });
+    };
     self.itemsListController.didUpdateBlock = ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             UITableView *tableView = welf.tableViewBlock ? welf.tableViewBlock() : nil;
