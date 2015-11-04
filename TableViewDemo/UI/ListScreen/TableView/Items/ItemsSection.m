@@ -31,6 +31,11 @@
     return self;
 }
 
+- (void)loadMoreItems
+{
+    [self.itemsListController loadMoreItems];
+}
+
 #pragma mark - DRTableViewSection
 
 - (NSObject <DRTableViewRow> *)rowAtIndex:(NSInteger)index

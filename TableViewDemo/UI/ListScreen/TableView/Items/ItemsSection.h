@@ -15,4 +15,6 @@ typedef NSUInteger (^ItemsSectionIndexBlock)();
 
 + (void)registerInTableView:(UITableView *)tableView;
 
+- (void)loadMoreItems;
+
 @end
