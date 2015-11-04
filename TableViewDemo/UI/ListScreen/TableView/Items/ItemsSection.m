@@ -13,6 +13,8 @@
 @property (nonatomic, strong) ItemRow *itemRow;
 @property (nonatomic, strong) ItemsListController *itemsListController;
 @property (nonatomic, strong) NSArray *items;
+@property (nonatomic, assign) BOOL isLoadingItems;
+@property (nonatomic, assign) BOOL canLoadMoreItems;
 
 @end
 
@@ -40,6 +42,26 @@
 - (void)loadMoreItems
 {
     [self.itemsListController loadMoreItems];
+}
+
+#pragma mark - Properties
+
+- (void)setIsLoadingItems:(BOOL)isLoadingItems
+{
+    BOOL oldValue = _isLoadingItems;
+    BOOL newValue = isLoadingItems;
+    if (self.willChangeIsLoadingItemsBlock) self.willChangeIsLoadingItemsBlock(oldValue, newValue);
+    _isLoadingItems = newValue;
+    if (self.didChangeIsLoadingItemsBlock) self.didChangeIsLoadingItemsBlock(oldValue, newValue);
+}
+
+- (void)setCanLoadMoreItems:(BOOL)canLoadMoreItems
+{
+    BOOL oldValue = _canLoadMoreItems;
+    BOOL newValue = canLoadMoreItems;
+    if (self.willChangeCanLoadMoreItemsBlock) self.willChangeCanLoadMoreItemsBlock(oldValue, newValue);
+    _canLoadMoreItems = canLoadMoreItems;
+    if (self.didChangeCanLoadMoreItemsBlock) self.didChangeCanLoadMoreItemsBlock(oldValue, newValue);
 }
 
 #pragma mark - DRTableViewSection
@@ -110,6 +132,18 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             UITableView *tableView = welf.tableViewBlock ? welf.tableViewBlock() : nil;
             [tableView endUpdates];
+        });
+    };
+    self.itemsListController.didChangeCanLoadMoreItemsBlock = ^(BOOL oldValue, BOOL newValue) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (oldValue == newValue) return;
+            welf.canLoadMoreItems = newValue;
+        });
+    };
+    self.itemsListController.didChangeIsLoadingItemsBlock = ^(BOOL oldValue, BOOL newValue) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (oldValue == newValue) return;
+            welf.isLoadingItems = newValue;
         });
     };
 }
