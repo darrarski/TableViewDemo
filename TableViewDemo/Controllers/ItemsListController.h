@@ -7,7 +7,6 @@
 
 @class Item;
 
-typedef void (^ItemsListControllerBlock)();
 typedef void (^ItemsListControllerInsertBlock)(NSUInteger count, NSUInteger atIndex);
 typedef void (^ItemsListControllerDeleteBlock)(NSUInteger count, NSUInteger atIndex);
 typedef void (^ItemsListControllerBoolChangeBlock)(BOOL oldValue, BOOL newValue);
@@ -15,17 +14,14 @@ typedef void (^ItemsListControllerBoolChangeBlock)(BOOL oldValue, BOOL newValue)
 @interface ItemsListController : NSObject
 
 @property (nonatomic, strong, readonly) NSArray<Item *> *items;
+@property (nonatomic, copy) ItemsListControllerInsertBlock didInsertItemsBlock;
+@property (nonatomic, copy) ItemsListControllerDeleteBlock didDeleteItemsBlock;
 
 @property (nonatomic, assign, readonly) BOOL isLoadingItems;
 @property (nonatomic, copy) ItemsListControllerBoolChangeBlock didChangeIsLoadingItemsBlock;
 
 @property (nonatomic, assign, readonly) BOOL canLoadMoreItems;
 @property (nonatomic, copy) ItemsListControllerBoolChangeBlock didChangeCanLoadMoreItemsBlock;
-
-@property (nonatomic, copy) ItemsListControllerBlock willUpdateBlock;
-@property (nonatomic, copy) ItemsListControllerInsertBlock didInsertItemsBlock;
-@property (nonatomic, copy) ItemsListControllerDeleteBlock didDeleteItemsBlock;
-@property (nonatomic, copy) ItemsListControllerBlock didUpdateBlock;
 
 - (void)clearItems;
 - (void)loadMoreItems;

@@ -104,33 +104,25 @@
 - (void)setupItemsListController
 {
     __weak typeof(self) welf = self;
-    self.itemsListController.willUpdateBlock = ^{
+    self.itemsListController.didInsertItemsBlock = ^(NSUInteger count, NSUInteger atIndex) {
         dispatch_async(dispatch_get_main_queue(), ^{
             UITableView *tableView = welf.tableViewBlock ? welf.tableViewBlock() : nil;
             [tableView beginUpdates];
-        });
-    };
-    self.itemsListController.didInsertItemsBlock = ^(NSUInteger count, NSUInteger atIndex) {
-        dispatch_async(dispatch_get_main_queue(), ^{
             welf.items = welf.itemsListController.items;
-            UITableView *tableView = welf.tableViewBlock ? welf.tableViewBlock() : nil;
             [tableView insertRowsAtIndexPaths:[welf indexPathsForRowsWithStartIndex:atIndex
                                                                               count:count]
                              withRowAnimation:UITableViewRowAnimationAutomatic];
+            [tableView endUpdates];
         });
     };
     self.itemsListController.didDeleteItemsBlock = ^(NSUInteger count, NSUInteger atIndex) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            welf.items = welf.itemsListController.items;
             UITableView *tableView = welf.tableViewBlock ? welf.tableViewBlock() : nil;
+            [tableView beginUpdates];
+            welf.items = welf.itemsListController.items;
             [tableView deleteRowsAtIndexPaths:[welf indexPathsForRowsWithStartIndex:atIndex
                                                                               count:count]
                              withRowAnimation:UITableViewRowAnimationAutomatic];
-        });
-    };
-    self.itemsListController.didUpdateBlock = ^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            UITableView *tableView = welf.tableViewBlock ? welf.tableViewBlock() : nil;
             [tableView endUpdates];
         });
     };

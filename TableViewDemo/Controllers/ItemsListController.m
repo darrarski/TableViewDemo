@@ -83,10 +83,8 @@
     NSUInteger count = items.count;
     if (count == 0) return;
     NSUInteger atIndex = self.items.count;
-    if (self.willUpdateBlock) self.willUpdateBlock();
     self.items = [self.items arrayByAddingObjectsFromArray:items];
     if (self.didInsertItemsBlock) self.didInsertItemsBlock(count, atIndex);
-    if (self.didUpdateBlock) self.didUpdateBlock();
 }
 
 - (void)deleteAllItems
@@ -94,10 +92,8 @@
     NSUInteger count = self.items.count;
     if (count == 0) return;
     NSUInteger atIndex = 0;
-    if (self.willUpdateBlock) self.willUpdateBlock();
     self.items = @[];
     if (self.didDeleteItemsBlock) self.didDeleteItemsBlock(count, atIndex);
-    if (self.didUpdateBlock) self.didUpdateBlock();
 }
 
 @end
