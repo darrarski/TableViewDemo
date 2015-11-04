@@ -24,7 +24,7 @@
 {
     [super viewDidLoad];
     [self setupTableView];
-    [self.listSection loadMoreItems];
+    [self.listSection reloadItems];
 }
 
 #pragma mark - Table
