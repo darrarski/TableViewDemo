@@ -14,6 +14,11 @@
 
 @implementation ItemsListController
 
+- (void)clearItems
+{
+    [self deleteAllItems];
+}
+
 - (void)loadMoreItems
 {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
@@ -44,6 +49,17 @@
     if (self.willUpdateBlock) self.willUpdateBlock();
     self.items = [self.items arrayByAddingObjectsFromArray:items];
     if (self.didInsertItemsBlock) self.didInsertItemsBlock(count, atIndex);
+    if (self.didUpdateBlock) self.didUpdateBlock();
+}
+
+- (void)deleteAllItems
+{
+    NSUInteger count = self.items.count;
+    if (count == 0) return;
+    NSUInteger atIndex = 0;
+    if (self.willUpdateBlock) self.willUpdateBlock();
+    self.items = @[];
+    if (self.didDeleteItemsBlock) self.didDeleteItemsBlock(count, atIndex);
     if (self.didUpdateBlock) self.didUpdateBlock();
 }
 

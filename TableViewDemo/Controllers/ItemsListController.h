@@ -9,6 +9,7 @@
 
 typedef void (^ItemsListControllerBlock)();
 typedef void (^ItemsListControllerInsertBlock)(NSUInteger count, NSUInteger atIndex);
+typedef void (^ItemsListControllerDeleteBlock)(NSUInteger count, NSUInteger atIndex);
 
 @interface ItemsListController : NSObject
 
@@ -16,8 +17,10 @@ typedef void (^ItemsListControllerInsertBlock)(NSUInteger count, NSUInteger atIn
 
 @property (nonatomic, copy) ItemsListControllerBlock willUpdateBlock;
 @property (nonatomic, copy) ItemsListControllerInsertBlock didInsertItemsBlock;
+@property (nonatomic, copy) ItemsListControllerDeleteBlock didDeleteItemsBlock;
 @property (nonatomic, copy) ItemsListControllerBlock didUpdateBlock;
 
+- (void)clearItems;
 - (void)loadMoreItems;
 
 @end
