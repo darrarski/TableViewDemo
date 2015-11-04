@@ -18,4 +18,6 @@ typedef void (^ItemsListControllerInsertBlock)(NSUInteger count, NSUInteger atIn
 @property (nonatomic, copy) ItemsListControllerInsertBlock didInsertItemsBlock;
 @property (nonatomic, copy) ItemsListControllerBlock didUpdateBlock;
 
+- (void)loadMoreItems;
+
 @end
