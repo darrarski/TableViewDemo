@@ -31,6 +31,12 @@
     return self;
 }
 
+- (void)reloadItems
+{
+    [self.itemsListController clearItems];
+    [self loadMoreItems];
+}
+
 - (void)loadMoreItems
 {
     [self.itemsListController loadMoreItems];
