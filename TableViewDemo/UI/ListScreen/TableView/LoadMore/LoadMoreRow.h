@@ -5,7 +5,11 @@
 
 #import <DRTableViewManager/DRTableViewRow.h>
 
+typedef void (^LoadMoreRowBlock)();
+
 @interface LoadMoreRow : NSObject <DRTableViewRow>
+
+@property (nonatomic, copy) LoadMoreRowBlock willDisplayCellBlock;
 
 + (void)registerInTableView:(UITableView *)tableView;
 

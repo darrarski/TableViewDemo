@@ -40,4 +40,9 @@
     return 10.f;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.willDisplayCellBlock) self.willDisplayCellBlock();
+}
+
 @end
