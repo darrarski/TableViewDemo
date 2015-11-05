@@ -39,7 +39,7 @@
 {
     NSUInteger startIndex = self.items.count;
     NSMutableArray *items = [NSMutableArray new];
-    for (NSUInteger i = 1; i <= 3; ++i) {
+    for (NSUInteger i = 1; i <= 20; ++i) {
         [items addObject:[[Item alloc] initWithName:[NSString stringWithFormat:@"Item #%@", @(startIndex+i)]]];
     }
     return [items copy];
@@ -47,7 +47,7 @@
 
 - (BOOL)canGenerateMoreItems
 {
-    return self.items.count < 50;
+    return self.items.count < 100;
 }
 
 #pragma mark - Properties
