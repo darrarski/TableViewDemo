@@ -7,4 +7,6 @@
 
 @interface LoadingSection : NSObject <DRTableViewSection>
 
+@property (nonatomic, assign) BOOL visible;
+
 @end

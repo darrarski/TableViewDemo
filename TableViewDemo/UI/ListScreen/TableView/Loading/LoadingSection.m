@@ -7,6 +7,18 @@
 
 @implementation LoadingSection
 
+- (void)setVisible:(BOOL)visible
+{
+    if (_visible == visible) return;
+    _visible = visible;
+    if (_visible) {
+        NSLog(@"show loading section");
+    }
+    else {
+        NSLog(@"hide loading section");
+    }
+}
+
 #pragma mark - DRTableViewSection
 
 - (NSObject <DRTableViewRow> *)rowAtIndex:(NSInteger)index
