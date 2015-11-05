@@ -8,6 +8,7 @@
 #import "ListViewController.h"
 #import "ItemsSection.h"
 #import "LoadingSection.h"
+#import "LoadMoreSection.h"
 
 @interface ListViewController ()
 
@@ -15,6 +16,7 @@
 @property (nonatomic, strong) DRTableViewGenericSectionsController *sectionsController;
 @property (nonatomic, strong) ItemsSection *listSection;
 @property (nonatomic, strong) LoadingSection *loadingSection;
+@property (nonatomic, strong) LoadMoreSection *loadMoreSection;
 
 @end
 
@@ -51,7 +53,8 @@
         _sectionsController = [[DRTableViewGenericSectionsController alloc] init];
         _sectionsController.sectionsArray = @[
             self.listSection,
-            self.loadingSection
+            self.loadingSection,
+            self.loadMoreSection
         ];
     }
     return _sectionsController;
@@ -68,6 +71,17 @@
         section.sectionIndexBlock = ^NSUInteger {
             return [welf.sectionsController.sectionsArray indexOfObject:welf.listSection];
         };
+        section.didChangeCanLoadMoreItemsBlock = ^(BOOL oldValue, BOOL newValue) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [welf updateLoadMoreSectionVisibility];
+            });
+        };
+        section.didChangeIsLoadingItemsBlock = ^(BOOL oldValue, BOOL newValue) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [welf updateLoadingSectionVisibility];
+                [welf updateLoadMoreSectionVisibility];
+            });
+        };
         _listSection = section;
     }
     return _listSection;
@@ -80,6 +94,25 @@
         _loadingSection = section;
     }
     return _loadingSection;
+}
+
+- (void)updateLoadingSectionVisibility
+{
+    self.loadingSection.visible = self.listSection.isLoadingItems;
+}
+
+- (LoadMoreSection *)loadMoreSection
+{
+    if (!_loadMoreSection) {
+        LoadMoreSection *section = [[LoadMoreSection alloc] init];
+        _loadMoreSection = section;
+    }
+    return _loadMoreSection;
+}
+
+- (void)updateLoadMoreSectionVisibility
+{
+    self.loadMoreSection.visible = self.listSection.canLoadMoreItems && !self.listSection.isLoadingItems;
 }
 
 @end
