@@ -4,31 +4,53 @@
 //
 
 #import "LoadMoreSection.h"
+#import "LoadMoreRow.h"
+
+@interface LoadMoreSection ()
+
+@property (nonatomic, strong) LoadMoreRow *row;
+
+@end
 
 @implementation LoadMoreSection
+
++ (void)registerInTableView:(UITableView *)tableView
+{
+    [LoadMoreRow registerInTableView:tableView];
+}
 
 - (void)setVisible:(BOOL)visible
 {
     if (_visible == visible) return;
+    UITableView *tableView = self.tableViewBlock ? self.tableViewBlock() : nil;
+    NSUInteger sectionIndex = self.sectionIndexBlock ? self.sectionIndexBlock() : 0;
+    [tableView beginUpdates];
     _visible = visible;
-    if (_visible) {
-        NSLog(@"show load more section");
-    }
-    else {
-        NSLog(@"hide load more section");
-    }
+    [tableView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]
+             withRowAnimation:UITableViewRowAnimationAutomatic];
+    [tableView endUpdates];
 }
 
 #pragma mark - DRTableViewSection
 
 - (NSObject <DRTableViewRow> *)rowAtIndex:(NSInteger)index
 {
-    return nil;
+    return self.row;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return self.visible ? 1 : 0;
+}
+
+#pragma mark - Row
+
+- (LoadMoreRow *)row
+{
+    if (!_row) {
+        _row = [[LoadMoreRow alloc] init];
+    }
+    return _row;
 }
 
 @end
