@@ -16,6 +16,7 @@
 		773AC9B026B79A9CFB858F14 /* libPods-TableViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A50DB41EDF0397345D9657E /* libPods-TableViewDemo.a */; };
 		9DA8A11AFAF2BB4B64A776DE /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A34344CDB5A56169C3BD /* ListViewController.m */; };
 		9DA8A226FD3C595826C25E9B /* LoadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A6876781953F48555204 /* LoadingCell.m */; };
+		9DA8A22D6CFC24E03D662629 /* LoadMoreRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A27653DDA6FBCAD44720 /* LoadMoreRow.m */; };
 		9DA8A34AFCB3799891AF4540 /* LoadMoreSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A8ACC467C422432705C4 /* LoadMoreSection.m */; };
 		9DA8A3CC265EF753EE95AA93 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A1FE0B3BCB795F37106A /* Item.m */; };
 		9DA8A5DD7314F49A8D8D6C48 /* LoadingRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8AA922412D114D6D59070 /* LoadingRow.m */; };
@@ -24,6 +25,7 @@
 		9DA8A8BCA234E04D342F672C /* ItemsListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8AF6C6F29948AFD4196CE /* ItemsListController.m */; };
 		9DA8AAB1CAA212D15391CA2B /* ItemsSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A04C53A2E1B4963B3CC5 /* ItemsSection.m */; };
 		9DA8AE49CF9B692387774C34 /* ItemRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A66BA18817B732546644 /* ItemRow.m */; };
+		9DA8AE5BD0A2F1554A1D6F11 /* LoadMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A9A7D531FE19B4386B31 /* LoadMoreCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,15 +46,19 @@
 		9DA8A04C53A2E1B4963B3CC5 /* ItemsSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemsSection.m; sourceTree = "<group>"; };
 		9DA8A13D246EA7C9185D695E /* LoadingSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingSection.h; sourceTree = "<group>"; };
 		9DA8A1FE0B3BCB795F37106A /* Item.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Item.m; sourceTree = "<group>"; };
+		9DA8A27653DDA6FBCAD44720 /* LoadMoreRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreRow.m; sourceTree = "<group>"; };
 		9DA8A34344CDB5A56169C3BD /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		9DA8A433A3DFFCB3272E1691 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		9DA8A4C6EBF38BA7B91F5E6A /* LoadingRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingRow.h; sourceTree = "<group>"; };
+		9DA8A4D0054737D4452B5B3E /* LoadMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreCell.h; sourceTree = "<group>"; };
 		9DA8A4DD4BF021210ACA2BF5 /* LoadingSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingSection.m; sourceTree = "<group>"; };
 		9DA8A59442BC7438818D5D98 /* LoadMoreSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreSection.h; sourceTree = "<group>"; };
 		9DA8A66BA18817B732546644 /* ItemRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemRow.m; sourceTree = "<group>"; };
 		9DA8A6876781953F48555204 /* LoadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingCell.m; sourceTree = "<group>"; };
+		9DA8A8962E480523F86B5321 /* LoadMoreRow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreRow.h; sourceTree = "<group>"; };
 		9DA8A8ACC467C422432705C4 /* LoadMoreSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreSection.m; sourceTree = "<group>"; };
 		9DA8A94145CBE98CCCFB9EB3 /* ItemsListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsListController.h; sourceTree = "<group>"; };
+		9DA8A9A7D531FE19B4386B31 /* LoadMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreCell.m; sourceTree = "<group>"; };
 		9DA8AA922412D114D6D59070 /* LoadingRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingRow.m; sourceTree = "<group>"; };
 		9DA8AB4DEAEB4F08B4CD9FA8 /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
 		9DA8ABF068F45D675155597E /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
@@ -188,6 +194,10 @@
 			children = (
 				9DA8A8ACC467C422432705C4 /* LoadMoreSection.m */,
 				9DA8A59442BC7438818D5D98 /* LoadMoreSection.h */,
+				9DA8A27653DDA6FBCAD44720 /* LoadMoreRow.m */,
+				9DA8A8962E480523F86B5321 /* LoadMoreRow.h */,
+				9DA8A9A7D531FE19B4386B31 /* LoadMoreCell.m */,
+				9DA8A4D0054737D4452B5B3E /* LoadMoreCell.h */,
 			);
 			path = LoadMore;
 			sourceTree = "<group>";
@@ -377,6 +387,8 @@
 				9DA8A34AFCB3799891AF4540 /* LoadMoreSection.m in Sources */,
 				9DA8A5DD7314F49A8D8D6C48 /* LoadingRow.m in Sources */,
 				9DA8A226FD3C595826C25E9B /* LoadingCell.m in Sources */,
+				9DA8A22D6CFC24E03D662629 /* LoadMoreRow.m in Sources */,
+				9DA8AE5BD0A2F1554A1D6F11 /* LoadMoreCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
