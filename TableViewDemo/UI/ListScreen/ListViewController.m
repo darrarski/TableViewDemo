@@ -37,6 +37,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.tableViewManager registerInTableView:self.tableView];
     [ItemsSection registerInTableView:self.tableView];
+    [LoadingSection registerInTableView:self.tableView];
 }
 
 - (DRTableViewManager *)tableViewManager
@@ -91,6 +92,14 @@
 {
     if (!_loadingSection) {
         LoadingSection *section = [[LoadingSection alloc] init];
+        __weak typeof(section) weakSection = section;
+        __weak typeof(self) welf = self;
+        section.tableViewBlock = ^UITableView * {
+            return welf.tableView;
+        };
+        section.sectionIndexBlock = ^NSUInteger {
+            return [welf.sectionsController.sectionsArray indexOfObject:weakSection];
+        };
         _loadingSection = section;
     }
     return _loadingSection;
