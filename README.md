@@ -12,3 +12,7 @@ Exmple list implementation that uses [DRTableViewManager](https://github.com/dar
   - `ItemsSection` - displays list of `Item` objects from `ItemsListController`
   - `LoadingSection` - displays `UIActivityIndicatorView` when `ItemsListController` is loading items
   - `LoadMoreSection` - triggers loading more items when table view is scrolled to the bottom (infinite scroll)
+
+## License
+
+The MIT License (MIT) - check out included [LICENSE](LICENSE) file
