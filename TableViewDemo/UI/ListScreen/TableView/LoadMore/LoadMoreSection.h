@@ -5,6 +5,7 @@
 
 #import <DRTableViewManager/DRTableViewSection.h>
 
+typedef void (^LoadMoreSectionBlock)();
 typedef UITableView *(^LoadMoreSectionTableViewBlock)();
 typedef NSUInteger (^LoadMoreSectionIndexBlock)();
 
@@ -14,6 +15,7 @@ typedef NSUInteger (^LoadMoreSectionIndexBlock)();
 
 @property (nonatomic, copy) LoadMoreSectionTableViewBlock tableViewBlock;
 @property (nonatomic, copy) LoadMoreSectionIndexBlock sectionIndexBlock;
+@property (nonatomic, copy) LoadMoreSectionBlock loadMoreActionBlock;
 
 + (void)registerInTableView:(UITableView *)tableView;
 

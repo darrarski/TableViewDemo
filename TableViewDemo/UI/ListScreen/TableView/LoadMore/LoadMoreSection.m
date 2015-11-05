@@ -48,7 +48,12 @@
 - (LoadMoreRow *)row
 {
     if (!_row) {
-        _row = [[LoadMoreRow alloc] init];
+        LoadMoreRow *row = [[LoadMoreRow alloc] init];
+        __weak typeof(self) welf = self;
+        row.willDisplayCellBlock = ^{
+            if (welf.loadMoreActionBlock) welf.loadMoreActionBlock();
+        };
+        _row = row;
     }
     return _row;
 }
