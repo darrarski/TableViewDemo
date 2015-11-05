@@ -14,11 +14,9 @@ typedef void (^ItemsSectionBoolChangeBlock)(BOOL oldValue, BOOL newValue);
 @property (nonatomic, copy) ItemsSectionTableViewBlock tableViewBlock;
 @property (nonatomic, copy) ItemsSectionIndexBlock sectionIndexBlock;
 
-@property (nonatomic, copy) ItemsSectionBoolChangeBlock willChangeIsLoadingItemsBlock;
 @property (nonatomic, assign, readonly) BOOL isLoadingItems;
 @property (nonatomic, copy) ItemsSectionBoolChangeBlock didChangeIsLoadingItemsBlock;
 
-@property (nonatomic, copy) ItemsSectionBoolChangeBlock willChangeCanLoadMoreItemsBlock;
 @property (nonatomic, assign, readonly) BOOL canLoadMoreItems;
 @property (nonatomic, copy) ItemsSectionBoolChangeBlock didChangeCanLoadMoreItemsBlock;
 

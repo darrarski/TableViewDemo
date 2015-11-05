@@ -13,8 +13,6 @@
 @property (nonatomic, strong) ItemRow *itemRow;
 @property (nonatomic, strong) ItemsListController *itemsListController;
 @property (nonatomic, strong) NSArray *items;
-@property (nonatomic, assign) BOOL isLoadingItems;
-@property (nonatomic, assign) BOOL canLoadMoreItems;
 
 @end
 
@@ -46,22 +44,34 @@
 
 #pragma mark - Properties
 
-- (void)setIsLoadingItems:(BOOL)isLoadingItems
+- (BOOL)canLoadMoreItems
 {
-    BOOL oldValue = _isLoadingItems;
-    BOOL newValue = isLoadingItems;
-    if (self.willChangeIsLoadingItemsBlock) self.willChangeIsLoadingItemsBlock(oldValue, newValue);
-    _isLoadingItems = newValue;
-    if (self.didChangeIsLoadingItemsBlock) self.didChangeIsLoadingItemsBlock(oldValue, newValue);
+    return self.itemsListController.canLoadMoreItems;
 }
 
-- (void)setCanLoadMoreItems:(BOOL)canLoadMoreItems
+- (ItemsSectionBoolChangeBlock)didChangeCanLoadMoreItemsBlock
 {
-    BOOL oldValue = _canLoadMoreItems;
-    BOOL newValue = canLoadMoreItems;
-    if (self.willChangeCanLoadMoreItemsBlock) self.willChangeCanLoadMoreItemsBlock(oldValue, newValue);
-    _canLoadMoreItems = canLoadMoreItems;
-    if (self.didChangeCanLoadMoreItemsBlock) self.didChangeCanLoadMoreItemsBlock(oldValue, newValue);
+    return self.itemsListController.didChangeCanLoadMoreItemsBlock;
+}
+
+- (void)setDidChangeCanLoadMoreItemsBlock:(ItemsSectionBoolChangeBlock)didChangeCanLoadMoreItemsBlock
+{
+    self.itemsListController.didChangeCanLoadMoreItemsBlock = didChangeCanLoadMoreItemsBlock;
+}
+
+- (BOOL)isLoadingItems
+{
+    return self.itemsListController.isLoadingItems;
+}
+
+- (ItemsSectionBoolChangeBlock)didChangeIsLoadingItemsBlock
+{
+    return self.itemsListController.didChangeIsLoadingItemsBlock;
+}
+
+- (void)setDidChangeIsLoadingItemsBlock:(ItemsSectionBoolChangeBlock)didChangeIsLoadingItemsBlock
+{
+    self.itemsListController.didChangeIsLoadingItemsBlock = didChangeIsLoadingItemsBlock;
 }
 
 #pragma mark - DRTableViewSection
@@ -124,18 +134,6 @@
                                                                               count:count]
                              withRowAnimation:UITableViewRowAnimationAutomatic];
             [tableView endUpdates];
-        });
-    };
-    self.itemsListController.didChangeCanLoadMoreItemsBlock = ^(BOOL oldValue, BOOL newValue) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (oldValue == newValue) return;
-            welf.canLoadMoreItems = newValue;
-        });
-    };
-    self.itemsListController.didChangeIsLoadingItemsBlock = ^(BOOL oldValue, BOOL newValue) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (oldValue == newValue) return;
-            welf.isLoadingItems = newValue;
         });
     };
 }
