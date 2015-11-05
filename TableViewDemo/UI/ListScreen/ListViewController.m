@@ -123,6 +123,11 @@
         section.sectionIndexBlock = ^NSUInteger {
             return [welf.sectionsController.sectionsArray indexOfObject:weakSection];
         };
+        section.loadMoreActionBlock = ^{
+            if (!welf.listSection.isLoadingItems) {
+                [welf.listSection loadMoreItems];
+            }
+        };
         _loadMoreSection = section;
     }
     return _loadMoreSection;
