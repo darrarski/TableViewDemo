@@ -15,6 +15,7 @@
 		31B645771BE96CA000B66D12 /* MainNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B645761BE96CA000B66D12 /* MainNavigationController.m */; };
 		773AC9B026B79A9CFB858F14 /* libPods-TableViewDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A50DB41EDF0397345D9657E /* libPods-TableViewDemo.a */; };
 		9DA8A11AFAF2BB4B64A776DE /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A34344CDB5A56169C3BD /* ListViewController.m */; };
+		9DA8A34AFCB3799891AF4540 /* LoadMoreSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A8ACC467C422432705C4 /* LoadMoreSection.m */; };
 		9DA8A3CC265EF753EE95AA93 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A1FE0B3BCB795F37106A /* Item.m */; };
 		9DA8A7883F93DE637B877E63 /* LoadingSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8A4DD4BF021210ACA2BF5 /* LoadingSection.m */; };
 		9DA8A83A52460C475FF1C298 /* ItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DA8ABF068F45D675155597E /* ItemCell.m */; };
@@ -44,7 +45,9 @@
 		9DA8A34344CDB5A56169C3BD /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
 		9DA8A433A3DFFCB3272E1691 /* Item.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
 		9DA8A4DD4BF021210ACA2BF5 /* LoadingSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingSection.m; sourceTree = "<group>"; };
+		9DA8A59442BC7438818D5D98 /* LoadMoreSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadMoreSection.h; sourceTree = "<group>"; };
 		9DA8A66BA18817B732546644 /* ItemRow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemRow.m; sourceTree = "<group>"; };
+		9DA8A8ACC467C422432705C4 /* LoadMoreSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadMoreSection.m; sourceTree = "<group>"; };
 		9DA8A94145CBE98CCCFB9EB3 /* ItemsListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemsListController.h; sourceTree = "<group>"; };
 		9DA8AB4DEAEB4F08B4CD9FA8 /* ItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCell.h; sourceTree = "<group>"; };
 		9DA8ABF068F45D675155597E /* ItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCell.m; sourceTree = "<group>"; };
@@ -170,11 +173,21 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		9DA8A756A3D271F16F3327AC /* LoadMore */ = {
+			isa = PBXGroup;
+			children = (
+				9DA8A8ACC467C422432705C4 /* LoadMoreSection.m */,
+				9DA8A59442BC7438818D5D98 /* LoadMoreSection.h */,
+			);
+			path = LoadMore;
+			sourceTree = "<group>";
+		};
 		9DA8A82F2FD3DEBF857D5D2B /* TableView */ = {
 			isa = PBXGroup;
 			children = (
 				9DA8AE29AE305AD77049C9FB /* Items */,
 				9DA8A43329719CC44ED9F5CD /* Loading */,
+				9DA8A756A3D271F16F3327AC /* LoadMore */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -351,6 +364,7 @@
 				9DA8AE49CF9B692387774C34 /* ItemRow.m in Sources */,
 				9DA8AAB1CAA212D15391CA2B /* ItemsSection.m in Sources */,
 				9DA8A7883F93DE637B877E63 /* LoadingSection.m in Sources */,
+				9DA8A34AFCB3799891AF4540 /* LoadMoreSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
