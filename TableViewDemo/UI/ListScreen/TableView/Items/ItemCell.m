@@ -69,7 +69,7 @@
 {
     if (!_nameLabel) {
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-        label.font = [UIFont systemFontOfSize:14 weight:UIFontWeightLight];
+        label.font = [UIFont systemFontOfSize:16 weight:UIFontWeightLight];
         label.textColor = [UIColor darkTextColor];
         _nameLabel = label;
     }

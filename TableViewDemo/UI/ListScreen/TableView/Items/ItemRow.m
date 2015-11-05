@@ -33,12 +33,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44.f;
+    return 66.f;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 44.f;
+    return 66.f;
 }
 
 - (void)tableView:(UITableView *)tableView configureCell:(UITableViewCell *)c forRowAtIndexPath:(NSIndexPath *)indexPath
