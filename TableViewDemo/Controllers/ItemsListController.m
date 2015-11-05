@@ -26,7 +26,7 @@
 {
     if (!self.canLoadMoreItems) return;
     self.isLoadingItems = YES;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC), dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC), dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
         [self insertItems:[self generateMoreItems]];
         self.canLoadMoreItems = [self canGenerateMoreItems];
         self.isLoadingItems = NO;
