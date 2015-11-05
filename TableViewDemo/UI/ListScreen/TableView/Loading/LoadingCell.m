@@ -22,8 +22,20 @@
         self.contentView.backgroundColor = [UIColor clearColor];
         [self loadSubviews];
         [self setupLayout];
+        [self cleanUp];
     }
     return self;
+}
+
+- (void)prepareForReuse
+{
+    [super prepareForReuse];
+    [self cleanUp];
+}
+
+- (void)cleanUp
+{
+    [self.activityIndicatorView startAnimating];
 }
 
 #pragma mark - Subviews
