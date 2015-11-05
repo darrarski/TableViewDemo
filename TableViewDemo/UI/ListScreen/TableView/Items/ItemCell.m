@@ -3,8 +3,8 @@
 // Copyright (c) 2015 Darrarski. All rights reserved.
 //
 
+#import <Masonry/View+MASAdditions.h>
 #import "ItemCell.h"
-#import "View+MASAdditions.h"
 
 @interface ItemCell ()
 
