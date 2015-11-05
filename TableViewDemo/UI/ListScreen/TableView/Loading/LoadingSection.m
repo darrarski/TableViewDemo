@@ -29,12 +29,6 @@
     [tableView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]
              withRowAnimation:UITableViewRowAnimationAutomatic];
     [tableView endUpdates];
-    if (_visible) {
-        NSLog(@"show loading section");
-    }
-    else {
-        NSLog(@"hide loading section");
-    }
 }
 
 #pragma mark - DRTableViewSection
