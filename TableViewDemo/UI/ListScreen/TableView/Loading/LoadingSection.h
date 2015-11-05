@@ -5,8 +5,14 @@
 
 #import <DRTableViewManager/DRTableViewSection.h>
 
+typedef UITableView *(^LoadingSectionTableViewBlock)();
+typedef NSUInteger (^LoadingSectionIndexBlock)();
+
 @interface LoadingSection : NSObject <DRTableViewSection>
 
 @property (nonatomic, assign) BOOL visible;
+
+@property (nonatomic, copy) LoadingSectionTableViewBlock tableViewBlock;
+@property (nonatomic, copy) LoadingSectionIndexBlock sectionIndexBlock;
 
 @end
