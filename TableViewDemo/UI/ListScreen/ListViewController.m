@@ -38,6 +38,7 @@
     [self.tableViewManager registerInTableView:self.tableView];
     [ItemsSection registerInTableView:self.tableView];
     [LoadingSection registerInTableView:self.tableView];
+    [LoadMoreSection registerInTableView:self.tableView];
 }
 
 - (DRTableViewManager *)tableViewManager
@@ -114,6 +115,14 @@
 {
     if (!_loadMoreSection) {
         LoadMoreSection *section = [[LoadMoreSection alloc] init];
+        __weak typeof(section) weakSection = section;
+        __weak typeof(self) welf = self;
+        section.tableViewBlock = ^UITableView * {
+            return welf.tableView;
+        };
+        section.sectionIndexBlock = ^NSUInteger {
+            return [welf.sectionsController.sectionsArray indexOfObject:weakSection];
+        };
         _loadMoreSection = section;
     }
     return _loadMoreSection;
