@@ -17,6 +17,7 @@
 @property (nonatomic, strong) ItemsSection *listSection;
 @property (nonatomic, strong) LoadingSection *loadingSection;
 @property (nonatomic, strong) LoadMoreSection *loadMoreSection;
+@property (nonatomic, strong, readonly) UIBarButtonItem *navigationBarRefreshButton;
 
 @end
 
@@ -25,8 +26,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupNavigationItem];
     [self setupTableView];
     [self.listSection reloadItems];
+}
+
+#pragma mark - Navigation Item
+
+- (void)setupNavigationItem
+{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                                                                           target:self
+                                                                                           action:@selector(navigationBarRefreshButtonAction)];
+}
+
+- (UIBarButtonItem *)navigationBarRefreshButton
+{
+    return self.navigationItem.rightBarButtonItem;
+}
+
+- (void)navigationBarRefreshButtonAction
+{
+    [self.listSection reloadItems];
+}
+
+- (void)updateNavigationBarRefreshButtonEnabledState
+{
+    self.navigationBarRefreshButton.enabled = !self.listSection.isLoadingItems;
 }
 
 #pragma mark - Table
@@ -80,6 +106,7 @@
         };
         section.didChangeIsLoadingItemsBlock = ^(BOOL oldValue, BOOL newValue) {
             dispatch_async(dispatch_get_main_queue(), ^{
+                [welf updateNavigationBarRefreshButtonEnabledState];
                 [welf updateLoadingSectionVisibility];
                 [welf updateLoadMoreSectionVisibility];
             });
