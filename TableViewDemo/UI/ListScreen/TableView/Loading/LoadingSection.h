@@ -15,4 +15,6 @@ typedef NSUInteger (^LoadingSectionIndexBlock)();
 @property (nonatomic, copy) LoadingSectionTableViewBlock tableViewBlock;
 @property (nonatomic, copy) LoadingSectionIndexBlock sectionIndexBlock;
 
++ (void)registerInTableView:(UITableView *)tableView;
+
 @end
