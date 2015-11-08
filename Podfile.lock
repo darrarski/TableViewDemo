@@ -1,13 +1,13 @@
 PODS:
-  - DRTableViewManager (1.0.12)
+  - DRTableViewManager (1.0.13)
   - Masonry (0.6.3)
 
 DEPENDENCIES:
-  - DRTableViewManager (~> 1.0.12)
+  - DRTableViewManager (~> 1.0.13)
   - Masonry (~> 0.6)
 
 SPEC CHECKSUMS:
-  DRTableViewManager: bee9438a79cf7fc15e98c31d3e3631b3866708bc
+  DRTableViewManager: f7f566cb96bbd14721b8df671145c36aea160c3c
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
 
 COCOAPODS: 0.39.0
