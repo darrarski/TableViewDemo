@@ -71,6 +71,7 @@
 {
     if (!_tableViewManager) {
         _tableViewManager = [[DRTableViewManager alloc] initWithSectionsController:self.sectionsController];
+        _tableViewManager.automaticRowHeightResolvingType = DRTableViewResolveAutomaticRowHeightManually;
     }
     return _tableViewManager;
 }

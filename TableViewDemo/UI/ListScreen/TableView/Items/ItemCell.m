@@ -92,7 +92,8 @@
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@16);
         make.right.lessThanOrEqualTo(@16);
-        make.centerY.equalTo(@0);
+        make.top.equalTo(@23);
+        make.bottom.equalTo(@-23);
     }];
 }
 

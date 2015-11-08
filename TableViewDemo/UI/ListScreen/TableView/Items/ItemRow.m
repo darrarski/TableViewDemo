@@ -31,9 +31,14 @@
     return [tableView dequeueReusableCellWithIdentifier:[[self class] cellReuseIdentifier] forIndexPath:indexPath];
 }
 
+- (UITableViewCell *)tableViewManager:(DRTableViewManager *)tableViewManager tableView:(UITableView *)tableView cellForComputingRowHeightAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [tableView dequeueReusableCellWithIdentifier:[[self class] cellReuseIdentifier]];
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 66.f;
+    return UITableViewAutomaticDimension;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath
